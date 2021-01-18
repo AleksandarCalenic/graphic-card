@@ -35,4 +35,5 @@ export class CardsComponent implements OnInit {
     this.parameters.pageSize = value;
     this.getCards();
   }
+
 }

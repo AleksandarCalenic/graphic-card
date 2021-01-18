@@ -1,1 +1,2 @@
-<p>pagination works!</p>
+<button *ngIf="page > 1" class="btn btn-primary" (click)="updatePage(page - 1)"><PREV</button>
+<button *ngIf="page < totalPage" class="btn btn-primary" (click)="updatePage(page + 1)">NEXT></button>

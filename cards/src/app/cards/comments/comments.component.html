@@ -1,1 +1,42 @@
-<p>comments works!</p>
+
+<div class="row">
+    <form 
+    (ngSubmit)="buttonSubmit()" 
+    novalidate 
+    #registerForm="ngForm">
+        <div class="form-group">
+            <input 
+            class="form-control"
+            type="text" 
+            name="name" 
+            placeholder="Name"
+            required
+            [(ngModel)]="comment.author">
+        </div>
+        <div class="form-group">
+            <textarea 
+            class="form-control"
+            name="comment"
+            type="text" 
+            id="comment" 
+            cols="25" 
+            rows="5"
+            placeholder="Comment"
+            required
+            [(ngModel)]="comment.text">
+            </textarea>
+        </div>
+        <div class="form-group">
+            <button 
+            type="submit" 
+            class="btn btn-primary float-right" 
+            [disabled]="registerForm.form.invalid"
+            >Submit
+            </button>
+        </div>
+    </form>
+</div>
+<br>
+<div *ngFor="let comment of comments?.results" class="row">
+    <app-comment-detail [comment]="comment"></app-comment-detail>
+</div>

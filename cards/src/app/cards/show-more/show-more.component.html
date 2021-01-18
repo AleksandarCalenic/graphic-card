@@ -1,0 +1,6 @@
+<p>{{textToShow}}
+    <span *ngIf="textToShow.length > textSize">
+        <button class="btn btn-link" (click)="toggle()" *ngIf="!showMore">(Show More)</button>
+        <button class="btn btn-link" (click)="toggle()" *ngIf="showMore">(Show Less)</button>
+    </span>
+</p>

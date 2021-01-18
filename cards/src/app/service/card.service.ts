@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { CardsCount } from '../cards/model/cards-count';
 import { map } from 'rxjs/operators';
 import { Card } from '../cards/model/card';
+import { Comments, Comment } from '../cards/model/comments';
 
 const baseurl = "http://localhost:3000/api/cards/";
 
@@ -31,6 +32,18 @@ export class CardService {
   putGrade(card: Card): Observable<Card>{
     return this.http.put(baseurl + card._id, card).pipe(map(x =>{
       return new Card(x);
+    }))
+  }
+
+  getComments(id: number): Observable<Comments>{
+    return this.http.get(baseurl + id + '/comments').pipe(map(x =>{
+      return new Comments(x);
+    }))
+  }
+
+  postComment(comment: Comment): Observable<Comment>{
+    return this.http.post(baseurl + comment.cards + '/comments', comment).pipe(map(x =>{
+      return new Comment(x);
     }))
   }
 }
